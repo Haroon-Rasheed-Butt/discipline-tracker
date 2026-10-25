@@ -10,7 +10,7 @@ A one-file monthly habit tracker. You can tick habits on your phone, edit the li
 | `printables/focus-reset-2026-1x-A4.pdf` | Your habits, empty boxes, Oct–Dec 2026 |
 | `printables/monthly-habit-tracker-template-A4.pdf` | Blank write-in template (sellable printable) |
 | `printables/monthly-habit-tracker-template-Letter.pdf` | Same template, US Letter size |
-| `.github/workflows/pages.yml` | Auto-deploys to GitHub Pages on every push to `main` |
+| `.github/workflows/pages.yml` | Auto-deploys to GitHub Pages on every push to `master` |
 
 ## Using it
 
@@ -28,7 +28,9 @@ git init && git add . && git commit -m "Focus tracker"
 gh repo create focus-tracker --public --source=. --push
 ```
 
-Next, on GitHub go to the repo's **Settings → Pages → Source: GitHub Actions**. The workflow then runs on every push.
+Next, on GitHub go to the repo's **Settings → Pages → Source: GitHub Actions**. The workflow then runs on every push to `master`.
+
+The deploy job uses the `github-pages` environment, which only accepts branches on its allow-list. If a run fails with *Branch "master" is not allowed to deploy to github-pages due to environment protection rules*, go to **Settings → Environments → github-pages → Deployment branches and tags** and add `master`.
 Your site will be at `https://<your-username>.github.io/focus-tracker/`.
 
 On iPhone, open the URL in Safari and tap **Share → Add to Home Screen**.
